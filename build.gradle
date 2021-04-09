@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+sourceSets.main {
+    java.srcDirs('src/main/java/')
+    resources.srcDirs('src/main/resources/')
+}
+
+sourceCompatibility = 8
+targetCompatibility = 8
+version = '1.0-SNAPSHOT'
+
+task run(type: JavaExec, dependsOn: [classes, configurations.runtimeClasspath]) {
+    workingDir "$rootDir/src/main/resources/"
+    standardInput System.in
+
+    main 'stack.StackWalking'
+    classpath sourceSets.main.runtimeClasspath
+}
