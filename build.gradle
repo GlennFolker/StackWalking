@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'maven'
 }
 
 sourceSets.main {
@@ -8,8 +7,8 @@ sourceSets.main {
     resources.srcDirs('src/main/resources/')
 }
 
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = 16
+targetCompatibility = 16
 version = '1.0-SNAPSHOT'
 
 task run(type: JavaExec, dependsOn: [classes, configurations.runtimeClasspath]) {
